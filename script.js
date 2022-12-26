@@ -1,3 +1,8 @@
+
+
+
+
+
 function obradiFormu() {
   // Dohvati podatke iz forme
   var ime = document.getElementById("ime").value;
@@ -16,6 +21,9 @@ function obradiFormu() {
     vreme: vreme,
     usluga: usluga
   };
+
+
+
 
   // Proveri da li postoji item u Web Storage sa nazivom "termini"
   if (localStorage.getItem("termini") === null) {
@@ -36,10 +44,14 @@ function obradiFormu() {
 }
 
 function prikaziTermine() {
-  // Dohvati niz sa zakazanim terminima iz Web Storage-a
-  var termini = JSON.parse(localStorage.getItem("termini"));
+  fetch("./appointments.json")
+  .then(response => {
+     return response.json();
+  })
+  .then(data => {
 
-// Inicijalizuj promenljivu za HTML kod tabele
+    var termini = data;
+    // Inicijalizuj promenljivu za HTML kod tabele
 var tableHTML = "<tr>" +
 "<th>Ime</th>" +
 "<th>Prezime</th>" +
@@ -53,7 +65,7 @@ var tableHTML = "<tr>" +
      tableHTML += "<tr>" +
                    "<td>" + termin.ime + "</td>" +
                    "<td>" + termin.prezime + "</td>" +
-                   "<td>" + termin.brojTelefona + "</td>" +
+                   "<td>" + termin.broj_telefona + "</td>" +
                    "<td>" + termin.datum + "</td>" +
                    "<td>" + termin.vreme + "</td>" +
                    "<td>" + termin.usluga + "</td>" +
@@ -63,14 +75,25 @@ var tableHTML = "<tr>" +
   // Dohvati element tabele i postavi HTML kod tabele
   var table = document.getElementById("appointmetsTable");
   table.innerHTML = tableHTML;
+  }
+    
+  );
+ 
+
+
 }
 
 prikaziTermine();
 
 //////////////////////
 function sortirajPoDatumuIVremenu() {
-  // Dohvati niz sa zakazanim terminima iz Web Storage-a
-  var termini = JSON.parse(localStorage.getItem("termini"));
+  fetch("./appointments.json")
+  .then(response => {
+     return response.json();
+  })
+  .then(data => {
+    // Dohvati niz sa zakazanim terminima iz Web Storage-a
+  var termini = data;
 
   // Sortiraj termine po datumu i vremenu
   termini.sort(function(a, b) {
@@ -107,13 +130,12 @@ function sortirajPoDatumuIVremenu() {
   // Petljom prolazi kroz sve sortirane termine i dodaje ih u HTML kod tabele
   for (var i = 0; i < termini.length; i++) {
     var termin = termini[i];
-    
     if(termin.datum >= d)
     {
       tableHTML += "<tr>" +
       "<td>" + termin.ime + "</td>" +
       "<td>" + termin.prezime + "</td>" +
-      "<td>" + termin.brojTelefona + "</td>" +
+      "<td>" + termin.broj_telefona + "</td>" +
       "<td>" + termin.datum + "</td>" +
       "<td>" + termin.vreme + "</td>" +
       "<td>" + termin.usluga + "</td>" +
@@ -125,4 +147,8 @@ function sortirajPoDatumuIVremenu() {
   // Dohvati element tabele i postavi HTML kod tabele
   var table = document.getElementById("appointmetsTable");
   table.innerHTML = tableHTML;
-}
+
+  });
+
+
+  }
