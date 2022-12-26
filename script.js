@@ -25,20 +25,20 @@ function obradiFormu() {
 
 
 
-  // Proveri da li postoji item u Web Storage sa nazivom "termini"
-  if (localStorage.getItem("termini") === null) {
-    // Ako ne postoji, napravi novi niz i dodaj trenutni termin u njega
-    var termini = [];
-    termini.push(termin);
-    // Upisi niz u Web Storage pod nazivom "termini"
-    localStorage.setItem("termini", JSON.stringify(termini));
-  } else {
-    // Ako postoji, dohvati niz iz Web Storage-a i dodaj trenutni termin u njega
-    var termini = JSON.parse(localStorage.getItem("termini"));
-    termini.push(termin);
-    // Upisi niz sa novim terminom u Web Storage
-    localStorage.setItem("termini", JSON.stringify(termini));
-  }
+  // // Proveri da li postoji item u Web Storage sa nazivom "termini"
+  // if (localStorage.getItem("termini") === null) {
+  //   // Ako ne postoji, napravi novi niz i dodaj trenutni termin u njega
+  //   var termini = [];
+  //   termini.push(termin);
+  //   // Upisi niz u Web Storage pod nazivom "termini"
+  //   localStorage.setItem("termini", JSON.stringify(termini));
+  // } else {
+  //   // Ako postoji, dohvati niz iz Web Storage-a i dodaj trenutni termin u njega
+  //   var termini = JSON.parse(localStorage.getItem("termini"));
+  //   termini.push(termin);
+  //   // Upisi niz sa novim terminom u Web Storage
+  //   localStorage.setItem("termini", JSON.stringify(termini));
+  //}
 
   // Prikaži sve zakazane termine u tabeli
 }
