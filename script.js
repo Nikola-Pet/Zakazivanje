@@ -1,4 +1,20 @@
+async function postData(data) {
+  const response = await fetch('https://api.jsonserve.com/W3FcWD', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+  return await response.json();
+}
 
+// Example usage
+const data = { user: 'John', age: 30 };
+postData(data)
+  .then(response => {
+    console.log(response);
+  });
 
 
 
@@ -44,7 +60,7 @@ function obradiFormu() {
 }
 
 function prikaziTermine() {
-  fetch("./appointments.json")
+  fetch("https://api.jsonserve.com/W3FcWD")
   .then(response => {
      return response.json();
   })
@@ -83,11 +99,11 @@ var tableHTML = "<tr>" +
 
 }
 
-prikaziTermine();
+//prikaziTermine();
 
 //////////////////////
 function sortirajPoDatumuIVremenu() {
-  fetch("./appointments.json")
+  fetch("https://api.jsonserve.com/W3FcWD")
   .then(response => {
      return response.json();
   })
