@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>New Tab App</title>
+  
+</head>
+
+<body>
+
+  <div class="small-container">
+    <h1>ZAKAZIVANJE TERMINA</h1>
+
+    <form>
+        <label for="ime">Ime:</label><br>
+        <input type="text" id="ime" name="ime"><br>
+        <br>
+        <label for="prezime">Prezime:</label><br>
+        <input type="text" id="prezime" name="prezime"><br>
+        <br>
+        <label for="broj_telefona">Broj telefona:</label><br>
+        <input type="text" id="broj_telefona" name="broj_telefona"><br>
+        <br>
+        <label for="datum">Datum:</label><br>
+        <input type="date" id="datum" name="datum"><br>
+        <br>
+        <label for="vreme">Vreme:</label><br>
+        <input type="time" id="vreme" name="vreme"><br>
+        <br>
+        <label for="usluga">Usluga:</label><br>
+        <select id="usluga" name="usluga">
+          <option value="Izlivanje">Izlivanje</option>
+          <option value="Korekcija">Korekcija</option>
+          <option value="Gel lak">Gel lak</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Rezerviši" onclick="obradiFormu()">
+      </form> 
+
+    <h2>Zakazani Termini</h2>
+    <input type="button" value="Istorija" onclick="prikaziTermine()">
+
+    <input type="button" value="Sortiraj po datumu i vremenu" onclick="sortirajPoDatumuIVremenu()">
+
+    <table id="appointmetsTable">
+       
+      </table>
+
+    
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

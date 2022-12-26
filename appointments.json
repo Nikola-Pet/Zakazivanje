@@ -1,0 +1,19 @@
+[
+      {
+        "ime": "Pera",
+        "prezime": "Perić",
+        "broj_telefona": "123-456-789",
+        "datum": "2022-01-01",
+        "vreme": "10:00",
+        "usluga": "Izlivanje"
+      },
+      {
+        "ime": "Mika",
+        "prezime": "Mikić",
+        "broj_telefona": "987-654-321",
+        "datum": "2022-01-02",
+        "vreme": "11:00",
+        "usluga": "Korekcija"
+      }
+]
+  
