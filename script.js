@@ -1,4 +1,4 @@
-
+prikaziTermine();
 
 
 
@@ -19,6 +19,8 @@ function obradiFormu() {
     vreme: vreme,
     usluga: usluga
   });
+
+  prikaziTermine();
 }
 
 function prikaziTermine() {
