@@ -1,26 +1,16 @@
 
 
-var request = new XMLHttpRequest();
-request.open('GET', 'db.json', true);
-
-request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
-    // Učitavanje je uspjelo, podaci se nalaze u request.response
-    var data = JSON.parse(request.response);
-    // ovdje možete da radite sa podacima
-    console.log(data);
-  } else {
-    // Učitavanje nije uspjelo, pojavila se greška
-    console.error('Greška pri učitavanju podataka');
-  }
-};
-
-request.onerror = function() {
-  // Došlo je do greške pri povezivanju sa serverom
-  console.error('Greška pri povezivanju sa serverom');
-};
-
-request.send();
+axios.get('https://api.jsonserve.com/W3FcWD')
+.then(response => {
+  // Učitavanje je uspjelo, podaci se nalaze u response.data
+  var data = response.data;
+  // ovdje možete da radite sa podacima
+  console.log(data);
+})
+.catch(error => {
+  // Učitavanje nije uspjelo, pojavila se greška
+  console.error(error);
+});
 
 
 
