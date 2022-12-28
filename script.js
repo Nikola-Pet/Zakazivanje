@@ -1,4 +1,4 @@
-prikaziTermine();
+
 
 
 
@@ -120,3 +120,7 @@ function sortirajPoDatumuIVremenu() {
     console.log(data);
   })
   }
+
+
+  ////////////////////////////////////////
+  prikaziTermine();
